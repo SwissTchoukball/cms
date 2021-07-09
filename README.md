@@ -27,6 +27,10 @@ To show the list of active crons: `crontab -l`.
 After having cloned the repository:
 
 - `npm install`
+- Duplicate `.env.example` into `.env` and provide a value for the `SECRET` env variable (this only needs to be done the first time)
+- `docker compose up` (to start the DB)
+- Dump the production DB and import it to your local DB (this only needs to be done the first time, or if you want to get up to date schema or data)
+- Copy the content of the `uploads` folder locally (this only needs to be done the first time, or if you want to get up to date uploaded files)
 - `npm start`
 
 ## Dump production DB into staging DB
