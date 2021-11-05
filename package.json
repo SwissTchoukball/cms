@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "argon2": "^0.28.2",
-    "directus": "^9.0.0-rc.90",
+    "directus": "^9.0.0",
     "mysql": "^2.18.1"
   }
 }

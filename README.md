@@ -59,14 +59,12 @@ TODO: Set up a maintenance page on the frontend that can be used when updating t
    - Open the crontab config with `crontab -e`
    - Comment the line for the cron handling Directus
    - Save changes
-   
 3. Stop directus with `pm2 stop directus`
 
 4. Apply the dependencies update
    - In production or staging, this should be done by pulling the latest state of `master` (as the update should have been tested first locally), and running `npm ci`.
-   - If upgrading Directus: [Directus - upgrading a project](https://docs.directus.io/guides/projects/#upgrading-updating-a-project)
+   - If upgrading Directus: [Directus - upgrading a project](https://docs.directus.io/configuration/upgrades-migrations/#upgrading-updating-a-project)
    - If upgrading argon2, there's currently [an issue](https://github.com/ranisalt/node-argon2/issues/276) where the provided build of the dependency doesn't work on Infomaniak Managed Cloud Server. To solve this, after updating the library, we have to run `npm rebuild argon2 --build-from-source`[^1].
-   
 5. Restart directus with `pm2 restart directus`
 
 6. Re-enable the cron
@@ -84,8 +82,4 @@ And a message saying `Current process list running is not in sync with saved lis
 
 Running `pm2 update` should solve the issue.
 
-
-
-[^1]: This requires to have `cc` installed, which is not the case by default on Infomaniak Managed Cloud Server. We did it by installing *BuildEssential* through Infomaniak Manager GUI.
-
-
+[^1]: This requires to have `cc` installed, which is not the case by default on Infomaniak Managed Cloud Server. We did it by installing _BuildEssential_ through Infomaniak Manager GUI.
