@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "argon2": "^0.28.2",
-    "directus": "^9.0.0",
+    "argon2": "^0.28.3",
+    "directus": "^9.2.2",
     "mysql": "^2.18.1"
   }
 }
