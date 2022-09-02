@@ -62,7 +62,7 @@ TODO: Set up a maintenance page on the frontend that can be used when updating t
 3. Stop directus with `pm2 stop directus`
 
 4. Apply the dependencies update
-   - In production or staging, this should be done by pulling the latest state of `master` (as the update should have been tested first locally), and running `npm ci`.
+   - In production or staging, this should be done by pulling the latest state of `main` (as the update should have been tested first locally), and running `npm ci`.
    - If upgrading Directus: [Directus - upgrading a project](https://docs.directus.io/configuration/upgrades-migrations/#upgrading-updating-a-project)
    - If upgrading argon2, there's currently [an issue](https://github.com/ranisalt/node-argon2/issues/276) where the provided build of the dependency doesn't work on Infomaniak Managed Cloud Server. To solve this, after updating the library, we have to run `npm rebuild argon2 --build-from-source`[^1].
 5. Restart directus with `pm2 restart directus`
