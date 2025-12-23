@@ -1,11 +1,7 @@
 version: '3.1'
 services:
   db:
-    image: mysql:5.7
-    # Docker image of MySQL 5.7 doesn't support Apple Silicon. Thus we have to specifiy the platform.
-    # Upgrading to MySQL 8 or MariaDB 10 would allow us using an image working for Apple Silicon.
-    platform: linux/amd64
-    restart: always
+    image: mariadb:10.6
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: directus
