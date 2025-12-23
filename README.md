@@ -4,7 +4,7 @@ The CMS of Swiss Tchoukball is using [Directus](https://directus.io).
 
 Production is on [cms.tchoukball.ch](https://cms.tchoukball.ch)
 
-Staging is on [staging.cms.tchoukball.ch](https://staging.cms.tchoukball.ch)
+Staging is not set up yet. The idea is to have it on [staging.cms.tchoukball.ch](https://staging.cms.tchoukball.ch)
 
 ## Setup
 
@@ -31,6 +31,9 @@ After having cloned the repository:
 - `docker compose up` (to start the DB)
 - Dump the production DB and import it to your local DB (this only needs to be done the first time, or if you want to get up to date schema or data)
 - Copy the content of the `uploads` folder locally (this only needs to be done the first time, or if you want to get up to date uploaded files)
+  - It can be done using this `rsync` command, which will only download the original files and not all the different generated sizes (which include `__` in the filename)  
+    `rsync -av --exclude='*__*' user@tchoukball.ch:path/to/uploads/ uploads/`  
+    Replace `user` with your username and `path/to/uploads` with the path to the uploads folder on the server.
 - `npm start`
 
 ## Dump production DB into staging DB
@@ -63,7 +66,7 @@ TODO: Set up a maintenance page on the frontend that can be used when updating t
 
 4. Apply the dependencies update
    - In production or staging, this should be done by pulling the latest state of `main` (as the update should have been tested first locally), and running `npm ci`.
-   - If upgrading Directus: [Directus - upgrading a project](https://docs.directus.io/self-hosted/upgrades-migrations.html#upgrading-updating-a-project)
+   - If upgrading Directus, run the database migrations with `npx directus database migrate:latest`.
 5. Restart directus with `pm2 restart directus`
 
 6. Re-enable the cron
