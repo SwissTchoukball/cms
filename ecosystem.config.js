@@ -1,15 +1,15 @@
 module.exports = {
   apps: [
     {
-      name: "directus",
-      script: "npm",
-      args: "start",
-      watch: true,
-      node_args: "",
+      name: 'directus',
+      script: 'npm',
+      args: 'start',
+      watch: false,
+      node_args: '',
       merge_logs: true,
-      cwd: process.env.HOME + "/sites/directus",
+      cwd: process.env.HOME + '/sites/directus',
       env: {
-        NODE_ENV: "production",
+        NODE_ENV: 'production',
       },
     },
   ],
